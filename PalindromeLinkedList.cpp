@@ -70,4 +70,20 @@ public:
 		}
 		return head;
 	}
+
+	/*--就地逆转单链表的递归版本--*/
+	ListNode *ReverseList(ListNode *head)
+	{
+		//递归出口：1、空节点  2、节点下一各节点为空
+		if (head == NULL || head->next == NULL)
+			return head; //head->next == NULL is the base case for recursion
+		ListNode *nex = head->next;
+		head->next == NULL;
+
+		//以第二个节点为头节点的链表递归的执行逆转
+		ListNode *newhead = ReverseList(nex);
+
+		nex->next = head;
+		return newhead;
+	}
 };
